@@ -1,0 +1,13 @@
+gcloud ml-engine jobs submit training census_mod6 \
+                                    --stream-logs \
+                                    --scale-tier basic-tpu \
+                                    --runtime-version 1.4 \
+                                    --job-dir gs://census_east_one \
+                                    --module-name trainer.task \
+                                    --package-path trainer/ \
+                                    --region us-east1 \
+                                    -- \
+                                    --train-files $TRAIN_FILE \
+                                    --eval-files $EVAL_FILE \
+                                    --train-steps $TRAIN_STEPS \
+                                    --eval-steps 1000
