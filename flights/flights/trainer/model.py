@@ -11,6 +11,7 @@ LABEL_COLUMN = 'ontime'
 DEFAULTS     = [[0.0],[0.0],[0.0],[0.0],[0.0],[0.0],\
                 ['na'],[0.0],[0.0],[0.0],[0.0],['na'],['na']]
 
+
 def read_dataset(filename, mode=tf.contrib.learn.ModeKeys.EVAL, batch_size=512, num_training_epochs=10):
 
   # the actual input function passed to TensorFlow
@@ -32,6 +33,8 @@ def read_dataset(filename, mode=tf.contrib.learn.ModeKeys.EVAL, batch_size=512, 
     return features, label
   
   return _input_fn
+
+read_dataset("DelayedFlights.csv")
 
 def get_features_raw():
     real = {
